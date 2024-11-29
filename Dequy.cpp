@@ -1,19 +1,21 @@
 #include <iostream>
+
 using namespace std;
- 
-static int count = 0;
-  int a = 5;
-  double ketqua = 2;
-  
-void dequy() {
-    count++;
-    if (count <= a) {
-        ketqua= ketqua*2;
-        cout << ketqua << endl;
-        dequy();
+
+void dequy(int n, double result) {
+    if (n == 0) {
+        cout << result << endl;
+        return;
     }
+
+    result *= 2;
+    cout << result << endl;
+    dequy(n - 1, result);
 }
+
 int main() {
-    dequy();
-    return 0; 
+    int n = 5;
+    double initialResult = 2;
+    dequy(n, initialResult);
+    return 0;
 }
